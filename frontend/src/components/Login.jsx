@@ -10,7 +10,8 @@ function Login() {
   const check = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post("https://logins-1.onrender.com/login",
+         {
         username: user,
         password: pass,
       })
