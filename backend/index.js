@@ -10,6 +10,10 @@ app.use(cors());
 
 let users = [];
 
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
+
 app.post("/register", (req, res) => {
   const { username, password } = req.body;
   const existingUser = users.find(u => u.username === username);
@@ -22,7 +26,9 @@ app.post("/register", (req, res) => {
 
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
-  const user = users.find(u => u.username === username && u.password === password);
+  const user = users.find(
+    u => u.username === username && u.password === password
+  );
   if (user) {
     res.json({ success: true });
   } else {
